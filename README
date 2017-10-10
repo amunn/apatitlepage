@@ -1,0 +1,55 @@
+% This is file apatitlepage.sty
+% Most code Copyright (C) 2011-2017 by Brian D. Beitzel <brian at beitzel.com>
+% Modifications Copyright 2017 by Alan Munn
+%
+% The following code is adapted from the apa6 documentclass. Most of it is copied verbatim except for
+% a few name changes to avoid potential document class clashes. It does not do anonymization.
+% The following commands have been renamed: (along with their internal versions):
+%
+% \author -> \APAauthor
+% \title -> \APAtitle
+% \shorttitle -> \APAshorttitle
+% \maketitle -> \APAmaketitle
+% \abstract -> \APAabstract
+% \keywords -> \APAkeywords
+% \authornote -> \APAauthornote
+% \note -> \APAnote
+%
+% The following commands have been added:
+%
+% \APAtitleformat -> defaults to \LARGE
+% \APAauthformat -> defaults to \large
+% \APAaffilformat -> defaults to {}
+%
+% Use \renewcommand to change these formats as needed
+% 
+%
+% All other author/affiliation commands remain the same as in the apa6 class
+% Please refer to the documentation of the class for how to use them.
+%
+%
+% This package may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This package has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this package is Alan Munn.
+%
+% This package consists of the file 
+%
+% apaptitlepage.sty 
+% 
+% and the documentation files:
+%
+% apatitlepage.tex, apatitlepage.pdf
+%
+% and an example document
+%
+% apatitlpage-test.tex, apatitlepage-test.pdf
+%
+% Version 1.0 2017/10/10

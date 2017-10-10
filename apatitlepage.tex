@@ -1,0 +1,120 @@
+% !TEX TS-program = pdflatexmk
+
+\documentclass[11pt]{article}
+\title{\textbf{The \textsf{apatitlepage} package}}
+\author{\textbf{Alan Munn}\\Department of Linguistics and Languages\\Michigan State University\\\texttt{\href{mailto:amunn@msu.edu}{amunn@msu.edu}}}
+\date{Version 1.0\\October 10, 2017}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{titling}
+\usepackage[utf8]{inputenc}
+\usepackage{array, booktabs, multicol, fancyhdr, xspace,tabularx}
+\usepackage{enumitem}
+\usepackage{fancyvrb,listings,url}
+\usepackage[sf,compact]{titlesec}
+\usepackage{screenplay-pkg}
+\usepackage[colorlinks=true]{hyperref}
+
+
+\DefineShortVerb{\|}
+\newcommand*\bs{\textbackslash}
+
+\IfFileExists{luximono.sty}%
+{%
+  \usepackage[scaled]{luximono}%
+}
+{%
+  \IfFileExists{beramono.sty}%
+  {%
+    \usepackage[scaled]{beramono}%
+  }{}
+}
+
+  
+\lstset{%
+    basicstyle=\ttfamily\small,
+    commentstyle=\itshape\ttfamily\small,
+    showspaces=false,
+    showstringspaces=false,
+    breaklines=true,
+    breakautoindent=true,
+    captionpos=t
+    language=TeX
+}
+  
+\newcommand*{\pkg}[1]{\texttt{#1}\xspace}
+\setitemize[1]{label={}}
+\setitemize[2]{label={}}
+\setdescription{font={\normalfont}}
+\setlength{\droptitle}{-1in}
+
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{\emph{}}
+\cfoot{\thepage}
+\rfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\pagestyle{fancy}
+
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\renewcommand{\abstractname}{\sffamily Abstract}
+
+\abstract{\noindent\begin{quote}This package provides a title page based on the APA journal style of the  \pkg{apa6} document class. This allows an APA formatted title page to be used in another document class.
+\end{quote}
+\section{Introduction}
+This package arose out of a question asked on the StackExchange website: \href{https://tex.stackexchange.com/q/395309/}{Manually create APA journal cover page} The question asked how easy it would be convert use class title page functionality in another document.  This package is the result of that discussion.
+\section{Package use}
+To use the package just load it like any other package:
+
+\begin{lstlisting}
+    \usepackage{apatitlepage}
+\end{lstlisting}
+
+\subsection{New commands}
+The package renames some of the \pkg{apa6} commands to avoid name clashes and adds three formatting hooks for the title, authors and affiliations in case those need to be changed.
+
+All other commands for entering authors and affiliations are identical to those described in the \href{https://www.ctan.org/pkg/apa6}{\pkg{apa6}} class. Please consult its  documentation for details.
+
+\begin{center}
+
+\begin{tabular}{l>{\raggedright\arraybackslash}p{3.5in}}
+\toprule
+\textsf{Command}       & \textsf{Explantion}\\
+   |\APAtitle{}| 	   & replaces |\title{}|\\
+   |\APAauthor{}|      & replaces |\author{}|\\
+   |\APAshorttitle|    & replaces  |\shorttitle|\\
+   |\APAmaketitle|	   & replaces |\maketitle|\\
+   |\APAabstract{}|      & replaces |\abstract|\\
+   |\APAkeywords{}|      & replaces |\keywords|\\
+   |\APAauthornote{}|    & replaces |\authornote|\\
+   |\APAnote{}|          & replaces |\note|\\
+   |\APAtitleformat|   & defaults to |\LARGE|\\
+       					 & use |\renewcommand| to define as needed\\
+   |\APAauthorformat|  & defaults to |\large|\\
+       					 & use |\renewcommand| to define as needed\\
+   |\APAaffilformat|  & defaults to |{}|\\
+       					 & use |\renewcommand| to define as needed\\			 
+\bottomrule
+\end{tabular}
+\end{center}
+\clearpage
+\subsection{Unchanged commands}
+All other titling commands relating to authors and affiliations have been retained.
+
+\subsection{Eliminated commands}
+Other than the titling commands, all other commands from the \pkg{apa6} class have been removed. There is also no anonymization code included in the package.
+
+
+\subsection{Bugs}
+You are welcome to report bugs and submit feature requests, but I should warn you that this package is extremely low priority for me in terms of maintenance, as I do not use it at all.  If you are interested in taking it over, please get in touch with me.
+
+\section{Sample document}
+The following is a sample document showing how the package is used. It can be found in the documentation folder for the package.
+\lstinputlisting{apatitlepage-test.tex}
+
+\end{document}
